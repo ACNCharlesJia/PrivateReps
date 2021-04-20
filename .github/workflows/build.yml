@@ -33,6 +33,8 @@ jobs:
       # Setup Java
       - name: Setup Java JDK
         uses: actions/setup-java@v2.0.0
+        with:
+          java-version: 8
 
       # Check Java Version
       - name: Run a multi-line script
