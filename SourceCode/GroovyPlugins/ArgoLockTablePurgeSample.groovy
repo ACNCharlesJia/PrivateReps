@@ -1,4 +1,4 @@
-package SourceCode.GroovyPlugins
+package com.navis.extension.mtl 
 
 import com.navis.argo.ArgoEntity
 import com.navis.argo.ArgoField
