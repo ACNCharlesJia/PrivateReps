@@ -40,4 +40,4 @@ jobs:
       # Check Java Version
       - name: Run a multi-line script
         run: |
-          bash ./tools/deploy.sh
+          bash tools/deploy.sh
