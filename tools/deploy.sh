@@ -42,7 +42,7 @@ deploy() {
 
   git update-ref -d HEAD
   ls
-  git add -A
+  git add tools/*
   git commit -m "[Automation] SNX update No.${GITHUB_RUN_NUMBER}"
 
   if $_no_branch; then
