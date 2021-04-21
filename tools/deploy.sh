@@ -32,8 +32,7 @@ flush() {
   rm -rf .[^.] .??*
 
   shopt -s dotglob nullglob
-  mv "$_backup_dir"/*.snx ./tools
-  mv "$_backup_dir"/.git .
+  mv "$_backup_dir"/* .
 }
 
 deploy() {
@@ -42,7 +41,7 @@ deploy() {
 
   git update-ref -d HEAD
   ls
-  git add tools/*
+  git add -A
   git commit -m "[Automation] SNX update No.${GITHUB_RUN_NUMBER}"
 
   if $_no_branch; then
