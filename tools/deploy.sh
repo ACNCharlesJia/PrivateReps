@@ -4,7 +4,7 @@
 
 set -eu
 
-BRANCH_NAME="SNX"
+BRANCH_NAME="Deploy"
 _no_branch=false
 _backup_dir="$(mktemp -d)"
 
