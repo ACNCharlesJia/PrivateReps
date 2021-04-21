@@ -37,7 +37,12 @@ jobs:
           java-version: 8
           distribution: zulu
 
-      # Check Java Version
-      - name: Run a multi-line script
+      # Excuete SNX mapping
+      - name: Excuete SNX mapping
+        run: |
+          java -jar ./tools/SnxTools-jar-with-dependencies.jar
+      
+      # Deploy
+      - name: Deploy
         run: |
           bash tools/deploy.sh

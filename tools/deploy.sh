@@ -6,6 +6,7 @@ set -eu
 
 BRANCH_NAME="SNX"
 _no_branch=false
+_backup_dir="$(mktemp -d)"
 
 init() {
   if [[ -z ${GITHUB_ACTION+x} ]]; then
@@ -15,13 +16,23 @@ init() {
 
   if [[ -z $(git branch -av | grep "$BRANCH_NAME") ]]; then
     _no_branch=true
-    git branch "$BRANCH_NAME"
+    git checkout -b "$BRANCH_NAME"
+  else
+    git checkout "$BRANCH_NAME"
   fi
 }
 
-execute() {
-	java -version
-	java -jar ./tools/SnxTools-jar-with-dependencies.jar
+backup() {
+  mv *.snx "$_backup_dir"
+  mv .git "$_backup_dir"
+}
+
+flush() {
+  rm -rf ./*
+  rm -rf .[^.] .??*
+
+  shopt -s dotglob nullglob
+  mv "$_backup_dir"/* .
 }
 
 deploy() {
@@ -32,12 +43,17 @@ deploy() {
   git add -A
   git commit -m "[Automation] SNX update No.${GITHUB_RUN_NUMBER}"
 
-  git push -u origin "$BRANCH_NAME"
+  if $_no_branch; then
+    git push -u origin "$BRANCH_NAME"
+  else
+    git push -f
+  fi
 }
 
 main() {
   init
-  execute
+  backup
+  flush
   deploy
 }
 
