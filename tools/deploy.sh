@@ -4,7 +4,7 @@
 
 set -eu
 
-BRANCH_NAME="Deploy"
+BRANCH_NAME="SNX"
 _no_branch=false
 _backup_dir="$(mktemp -d)"
 
@@ -32,8 +32,7 @@ flush() {
   rm -rf .[^.] .??*
 
   shopt -s dotglob nullglob
-  mv "$_backup_dir"/*.snx ./tools
-  mv "$_backup_dir"/.git .
+  mv "$_backup_dir"/* .
 }
 
 deploy() {
@@ -41,14 +40,13 @@ deploy() {
   git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
   git update-ref -d HEAD
-  ls
   git add -A
   git commit -m "[Automation] SNX update No.${GITHUB_RUN_NUMBER}"
 
   if $_no_branch; then
     git push -u origin "$BRANCH_NAME"
   else
-    git push -f origin "$BRANCH_NAME"
+    git push -f
   fi
 }
 
