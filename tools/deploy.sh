@@ -32,11 +32,7 @@ deploy() {
   git add -A
   git commit -m "[Automation] SNX update No.${GITHUB_RUN_NUMBER}"
 
-  if $_no_branch; then
-    git push -u origin "$BRANCH_NAME"
-  else
-    git push -f origin "$BRANCH_NAME"
-  fi
+  git push -u origin "$BRANCH_NAME"
 }
 
 main() {
