@@ -23,6 +23,7 @@ init() {
 }
 
 backup() {
+  mv *.snx "$_backup_dir"
   mv .git "$_backup_dir"
 }
 
@@ -31,7 +32,8 @@ flush() {
   rm -rf .[^.] .??*
 
   shopt -s dotglob nullglob
-  mv "$_backup_dir"/* .
+  mv "$_backup_dir"/*.snx ./tools
+  mv "$_backup_dir"/.git .
 }
 
 deploy() {
@@ -39,19 +41,21 @@ deploy() {
   git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
   git update-ref -d HEAD
-  java -jar ./tools/SnxTools-jar-with-dependencies.jar
+  ls
   git add -A
   git commit -m "[Automation] SNX update No.${GITHUB_RUN_NUMBER}"
 
   if $_no_branch; then
     git push -u origin "$BRANCH_NAME"
   else
-    git push -f
+    git push -f origin "$BRANCH_NAME"
   fi
 }
 
 main() {
   init
+  backup
+  flush
   deploy
 }
 
