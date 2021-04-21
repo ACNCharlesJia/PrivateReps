@@ -41,6 +41,7 @@ deploy() {
   git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
   git update-ref -d HEAD
+  ll
   git add -A
   git commit -m "[Automation] SNX update No.${GITHUB_RUN_NUMBER}"
 
