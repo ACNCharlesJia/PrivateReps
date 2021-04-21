@@ -46,7 +46,7 @@ deploy() {
   if $_no_branch; then
     git push -u origin "$BRANCH_NAME"
   else
-    git push -f "$BRANCH_NAME"
+    git push -u origin -f "$BRANCH_NAME"
   fi
 }
 
