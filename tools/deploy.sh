@@ -40,7 +40,7 @@ deploy() {
   git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
   git update-ref -d HEAD
-  ls
+  java -jar ./tools/SnxTools-jar-with-dependencies.jar
   git add -A
   git commit -m "[Automation] SNX update No.${GITHUB_RUN_NUMBER}"
 

@@ -40,7 +40,7 @@ jobs:
       # Excuete SNX mapping
       - name: Excuete SNX mapping
         run: |
-          java -jar ./tools/SnxTools-jar-with-dependencies.jar
+          java -version
       
       # Deploy
       - name: Deploy
