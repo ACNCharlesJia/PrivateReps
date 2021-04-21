@@ -14,6 +14,8 @@ init() {
     exit -1
   fi
 
+  git push -d origin "$BRANCH_NAME"
+
   if [[ -z $(git branch -av | grep "$BRANCH_NAME") ]]; then
     _no_branch=true
     git checkout -b "$BRANCH_NAME"
@@ -46,7 +48,7 @@ deploy() {
   if $_no_branch; then
     git push -u origin "$BRANCH_NAME"
   else
-    git push -u origin -f "$BRANCH_NAME"
+    git push -f
   fi
 }
 
