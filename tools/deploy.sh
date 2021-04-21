@@ -32,7 +32,7 @@ flush() {
   rm -rf .[^.] .??*
 
   shopt -s dotglob nullglob
-  mv "$_backup_dir"/* .
+  mv "$_backup_dir"/*.snx .
 }
 
 deploy() {
