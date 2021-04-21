@@ -23,7 +23,6 @@ init() {
 }
 
 backup() {
-  mv *.snx "$_backup_dir"
   mv .git "$_backup_dir"
 }
 
