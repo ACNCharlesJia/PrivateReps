@@ -27,6 +27,5 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          git branch -a
           git fetch
-          git diff Dev origin/main
+          git diff origin/main Dev
