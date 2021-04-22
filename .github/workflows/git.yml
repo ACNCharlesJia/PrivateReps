@@ -30,5 +30,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           git fetch
-          git log origin/main
+          git log --remotes=origin
           git ls-files -z | xargs -0 -n1 -I{} -- git log origin/main -1 --format="%ai {}" {}
