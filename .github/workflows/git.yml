@@ -29,4 +29,5 @@ jobs:
 #       git ls-tree -r --name-only HEAD | while read filename; do echo "$(git log --format="%cd" --date=short -- $filename) $filename"; done 
       - name: Run a multi-line script
         run: |
+          git checkout main
           git diff main..Dev --name-only
