@@ -1,4 +1,4 @@
-package com.navis.extension.mtl 
+package com.navis.extension.mtl
 
 import com.navis.argo.ArgoEntity
 import com.navis.argo.ArgoField
