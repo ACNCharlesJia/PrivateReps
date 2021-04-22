@@ -29,3 +29,5 @@ jobs:
         run: |
           git fetch
           git diff origin/main Dev --name-only --output ./diff.txt
+      - name: Run a single-line script
+        run: cat ./diff.txt
