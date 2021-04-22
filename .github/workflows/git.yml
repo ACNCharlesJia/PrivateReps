@@ -30,3 +30,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           git ls-tree -r --name-only HEAD
+          git log SourceCode/GroovyPlugins/DoFinalizeInvoice.groovy
