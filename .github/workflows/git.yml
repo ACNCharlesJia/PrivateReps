@@ -29,5 +29,6 @@ jobs:
 #       git ls-tree -r --name-only HEAD | while read filename; do echo "$(git log --format="%cd" --date=short -- $filename) $filename"; done 
       - name: Run a multi-line script
         run: |
-          git fetch
+          git fetch origin/main
+          git log origin/main
           git ls-files -z | xargs -0 -n1 -I{} -- git log origin/main -1 --format="%ai {}" {}
