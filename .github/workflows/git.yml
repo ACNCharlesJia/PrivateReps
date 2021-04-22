@@ -30,4 +30,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           git fetch
-          git ls-files -z | xargs -0 -n1 -I{} -- git log -1 --format="%ai {}" {}
+          git ls-files -z | xargs -0 -n1 -I{} -- git log origin/main -1 --format="%ai {}" {}
