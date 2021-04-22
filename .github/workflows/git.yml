@@ -28,4 +28,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           git fetch
-          git diff origin/main Dev
+          git diff origin/main Dev --name-only
