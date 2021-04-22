@@ -28,7 +28,7 @@ jobs:
       - name: diffset
         # You may pin to the exact commit or the version.
         # uses: softprops/diffset@da0442a4e1713d68bec70ab877f2d53d74813f1b
-        uses: softprops/diffset@v0.1.2
+        uses: softprops/diffset@v1
         with:
           # Base branch to compare with (defaults to master)
           base: main
