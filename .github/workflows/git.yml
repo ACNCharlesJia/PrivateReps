@@ -33,4 +33,4 @@ jobs:
           # Base branch to compare with (defaults to master)
           base: Sit
       - name: Print Diffset
-        run: ls -al ${{ steps.diffset.outputs }}
+        run: ls -l
