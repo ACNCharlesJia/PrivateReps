@@ -28,6 +28,7 @@ jobs:
       - name: diffset
         # You may pin to the exact commit or the version.
         # uses: softprops/diffset@da0442a4e1713d68bec70ab877f2d53d74813f1b
+        id: diffset
         uses: softprops/diffset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
