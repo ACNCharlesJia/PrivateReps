@@ -23,11 +23,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#       - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       # Runs a set of commands using the runners shell
 #       git ls-tree -r --name-only HEAD | while read filename; do echo "$(git log --format="%cd" --date=short -- $filename) $filename"; done 
       - name: Run a multi-line script
         run: |
           git ls-tree -r --name-only HEAD
-          git log SourceCode/GroovyPlugins/DoFinalizeInvoice.groovy
+          git ls-files -z | xargs -0 -n1 -I{} -- git log -1 --format="%ai {}" {}
