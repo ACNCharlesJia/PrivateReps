@@ -29,8 +29,10 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: softprops/diffset@da0442a4e1713d68bec70ab877f2d53d74813f1b
         uses: softprops/diffset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # Base branch to compare with (defaults to master)
           base: Sit
       - name: Print Diffset
-        run: ls -l
+        run: ls -al ${{ steps.diffset.outputs.special_files }}
