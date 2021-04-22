@@ -31,6 +31,6 @@ jobs:
         uses: softprops/diffset@v1
         with:
           # Base branch to compare with (defaults to master)
-          base: main
+          base: Sit
       - name: Print Diffset
         run: ls -al ${{ steps.diffset.outputs.files }}
